@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './Components/HEADER/Header'
 import { Route, Routes } from 'react-router-dom'
 import MainPage from './Components/MAIN/MainPage'
+import Article from './Components/MAIN/Article'
 
 
 
@@ -16,6 +14,7 @@ function App() {
 <Header/>
 <Routes>
 <Route path="/" element={<MainPage />}/>
+<Route path="/articles/:articleid" element={<Article />}/>
 </Routes>
 </>
  
