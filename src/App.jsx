@@ -2,7 +2,7 @@ import './App.css'
 import Header from './Components/HEADER/Header'
 import { Route, Routes } from 'react-router-dom'
 import MainPage from './Components/MAIN/MainPage'
-import Article from './Components/MAIN/Article'
+import Article from './Components/ARTICLE/Article'
 
 
 
