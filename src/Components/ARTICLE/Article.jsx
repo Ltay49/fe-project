@@ -32,6 +32,7 @@ export default function Article() {
     </div>
     <Comments/>
     </div>
+  
  
   );
 }
