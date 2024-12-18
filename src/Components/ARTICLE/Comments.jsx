@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axiosInstance from "../../Instance";
 import { useState, useEffect } from "react";
 import Votes from "./Votes";
+import Post_com from "./Post_com";
 
 export default function Comments() {
    const { articleid } = useParams();
@@ -13,11 +14,7 @@ export default function Comments() {
       setIsLoading(true);
       axiosInstance.get(`/articles/${articleid}/comments`)
          .then((response) => {
-            if (response.data.msg) {
-               setMessage(response.data.msg);
-            } else {
                setComments(response.data);
-            }
             setIsLoading(false);
          })
    }, [articleid]);
@@ -42,33 +39,7 @@ export default function Comments() {
          ) : (
             <p>{message}</p>
          )}
-         <section className="post-comment">
-            <form>
-               <p>Add your own comment here</p>
-               <br />
-               1. Enter your Username
-               <br />
-               2. Type your comment
-               <p>
-                  <label htmlFor="name"></label>
-                  <input
-                     type="text"
-                     id="name"
-                     name="user_name"
-                     placeholder="username here..."
-                  />
-               </p>
-               <p>
-                  <label htmlFor="post-comment"></label>
-                  <textarea
-                     id="post-comment"
-                     placeholder="write your comment here..."
-                     name="comment"
-                  ></textarea>
-               </p>
-            </form>
-            <button id="post-btn">Post</button>
-         </section>
+       <Post_com/>
       </>
    );
 }
