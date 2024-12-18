@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
+import ArticleVote from "./ArticleVote";
 
 export default function Article() {
   const { articleid } = useParams();
@@ -29,6 +30,7 @@ export default function Article() {
       <h1 id="solo_title">{article.title}</h1>
       <p id="solo_body">{article.body}</p>
       <img id="solo_img"src={article.article_img_url}></img>
+      <ArticleVote articleVotes={article.votes}/>
     </div>
     <Comments/>
     </div>
