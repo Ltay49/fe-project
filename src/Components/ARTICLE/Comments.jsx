@@ -8,13 +8,12 @@ export default function Comments() {
    const { articleid } = useParams();
    const [isLoading, setIsLoading] = useState(false);
    const [comments, setComments] = useState([]);
-   const [message, setMessage] = useState("");
-
+   
    useEffect(() => {
       setIsLoading(true);
       axiosInstance.get(`/articles/${articleid}/comments`)
          .then((response) => {
-               setComments(response.data);
+            setComments(response.data);
             setIsLoading(false);
          })
    }, [articleid]);
@@ -37,9 +36,9 @@ export default function Comments() {
                </section>
             ))
          ) : (
-            <p>{message}</p>
+            <p>no comment here yet</p>
          )}
-       <Post_com/>
+       <Post_com setComments={setComments}/>
       </>
    );
 }
