@@ -8,7 +8,7 @@ export default function NavBar(){
       <section className="links">
         <Link id="home_link"to="/">Home</Link>
         <Link id="users_link"to ="/Users">Users</Link>
-        <Link id="users_link"to ="/Users">Topics</Link>
+        <Link id="users_link"to ="/Topics">Topics</Link>
 
         </section>
         </nav>

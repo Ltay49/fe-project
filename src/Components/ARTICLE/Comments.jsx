@@ -3,11 +3,14 @@ import axiosInstance from "../../Instance";
 import { useState, useEffect } from "react";
 import Votes from "./Votes";
 import Post_com from "./Post_com";
+import { useUser } from "../../UserContext";
+import DeleteBtn from "./DeleteBtn";
 
 export default function Comments() {
    const { articleid } = useParams();
    const [isLoading, setIsLoading] = useState(false);
    const [comments, setComments] = useState([]);
+   const { profile} = useUser();
    
    useEffect(() => {
       setIsLoading(true);
@@ -21,7 +24,7 @@ export default function Comments() {
    if (isLoading) {
       return <>Loading...</>;
    }
-
+console.log(comments)
    return (
       <>
          {comments.length > 0 ? (
@@ -31,6 +34,7 @@ export default function Comments() {
                      <p className="commentCr">posted on: {comment.created_at}</p>
                      <p className="commentA">posted by: {comment.author}</p>
                      <p className="comment">{comment.body}</p>
+                     {profile?.username === comment.author && ( <DeleteBtn commentId={comment.comment_id} setComments={setComments}/>)}
                      <Votes currentCount={comment.votes} commentId={comment.comment_id} />
                   </section>
                </section>
