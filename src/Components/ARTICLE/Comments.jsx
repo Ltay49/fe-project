@@ -7,42 +7,56 @@ import { useUser } from "../../UserContext";
 import DeleteBtn from "./DeleteBtn";
 
 export default function Comments() {
-   const { articleid } = useParams();
-   const [isLoading, setIsLoading] = useState(false);
-   const [comments, setComments] = useState([]);
-   const { profile} = useUser();
-   
-   useEffect(() => {
-      setIsLoading(true);
-      axiosInstance.get(`/articles/${articleid}/comments`)
-         .then((response) => {
-            setComments(response.data);
-            setIsLoading(false);
-         })
-   }, [articleid]);
+  const { articleid } = useParams();
+  const [isLoading, setIsLoading] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const { profile } = useUser();
 
-   if (isLoading) {
-      return <>Loading...</>;
-   }
-console.log(comments)
-   return (
-      <>
-         {comments.length > 0 ? (
-            comments.map((comment, id) => (
-               <section className="comments-box" key={id}>
-                  <section className="comment-box">
-                     <p className="commentCr">posted on: {comment.created_at}</p>
-                     <p className="commentA">posted by: {comment.author}</p>
-                     <p className="comment">{comment.body}</p>
-                     {profile?.username === comment.author && ( <DeleteBtn commentId={comment.comment_id} setComments={setComments}/>)}
-                     <Votes currentCount={comment.votes} commentId={comment.comment_id} />
-                  </section>
-               </section>
-            ))
-         ) : (
-            <p>no comment here yet</p>
-         )}
-       <Post_com setComments={setComments}/>
-      </>
-   );
+  useEffect(() => {
+    setIsLoading(true);
+    axiosInstance.get(`/articles/${articleid}/comments`).then((response) => {
+      setComments(response.data);
+      setIsLoading(false);
+    });
+  }, [articleid]);
+
+  if (isLoading) {
+    return <>Loading...</>;
+  }
+
+  return (
+    <>
+      {deleteSuccess && (
+        <p className="success-message">Comment deleted successfully!</p>
+      )}
+
+      {comments.length > 0 ? (
+        comments.map((comment, id) => (
+          <section className="comments-box" key={id}>
+            <section className="comment-box">
+              <p className="commentCr">posted on: {comment.created_at}</p>
+              <p className="commentA">posted by: {comment.author}</p>
+              <p className="comment">{comment.body}</p>
+              {profile?.username === comment.author && (
+                <DeleteBtn
+                  commentId={comment.comment_id}
+                  setComments={setComments}
+                  setDeleteSuccess={setDeleteSuccess}
+                />
+              )}
+              <Votes
+                currentCount={comment.votes}
+                commentId={comment.comment_id}
+              />
+            </section>
+          </section>
+        ))
+      ) : (
+        <p>No comments here yet</p>
+      )}
+
+      <Post_com setComments={setComments} />
+    </>
+  );
 }
