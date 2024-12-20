@@ -1,42 +1,39 @@
 import { useState } from "react";
 import axiosInstance from "../../Instance";
-import { useParams } from "react-router-dom";
 
-export default function DeleteBtn({ commentId, setComments, comments }) {
-  const { articleid } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  
+export default function DeleteBtn({ commentId, setComments, setDeleteSuccess }) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDeleteError, setIsDeleteError] = useState(false);
+
   const handleDelete = () => {
+    setIsLoading(true);
+    setDeleteSuccess(false); 
+    setIsDeleteError(false);
+
     axiosInstance
       .delete(`/comments/${commentId}`)
-      .then((res) => {
-        axiosInstance
-          .get(`/articles/${articleid}/comments`)
-          .then((response) => {
-            setComments(response.data);
-            setIsLoading(false); 
-          })
-          .catch((err) => {
-            console.error("Error fetching updated comments:", err);
-            setIsError(true);
-          });
+      .then(() => {
+        setDeleteSuccess(true);
+        setComments(prevComments => prevComments.filter(comment => comment.comment_id !== commentId));
       })
       .catch((err) => {
         console.error("Error deleting comment:", err);
-        setIsError(true);
+        setIsDeleteError(true);
+      })
+      .finally(() => {
+        setIsLoading(false); 
       });
   };
 
   return (
     <div>
-      {!isLoading ? (
+      {isLoading ? (
         <p>Deleting...</p>
       ) : (
         <button onClick={handleDelete}>Delete</button>
       )}
 
-      {isError && isLoading && (
+      {isDeleteError && !isLoading && (
         <p className="error-message">Failed to delete the comment. Please try again later.</p>
       )}
     </div>
