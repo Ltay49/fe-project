@@ -1,128 +1,301 @@
 html {
-  background-color: beige;
-}
-.Header-Container {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: 50% 50%
-}
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  }
 
-#Header {
-  text-align: center;
+.Header-Container{
+  background-color: rgb(249, 248, 242);
+  display: grid;
+  grid-template-columns: 5% 40% 50% 5%;
+  grid-template-rows: auto auto;
+  border: solid rgb(240, 121, 121);
+  margin: -10px;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 10px black;
+}
+#Header{
   color: darkred;
   grid-row: 1;
-  grid-column: 1;
-  padding-bottom: 10px;
+  grid-column: 2;
+  text-align: left;
+  font-size: 3em;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 .nav-bar{
-  display: flex;
-  flex-wrap: wrap;
+  text-align: right;
+  grid-column: 3;
   grid-row: 2;
-  grid-column: 2;
-  margin-left: 200px;
-  padding-right: 150px;
-  padding-bottom: 10px;
-  margin-bottom: 60px;
-  width:50px;
-  border-bottom: groove;
+  font-size: 1.2em;
+}
+#home_link, #users_link {
+  color: black;
+  display: inline;
+  padding-right: 5%;
+  text-decoration: none
+}
+.dropdown{
+  display: inline;
+
+.dropdown-button {
+  background-color: rgb(108, 164, 192);
+  padding: 20px;
+  font-size: 1em;
+  border: none;
+  padding-bottom: 1%;
+  line-height: 1em;
+  color: darkred;
+}
 
 }
 
-#home_link, #users_link{
-  padding-right: 40px;
+.mainp-container{
+  display: grid;
+  grid-template-columns: 1% 1fr 1%;
+  grid-template-rows: 50px 50px auto auto auto;
+}
+.topics-box{
+margin-top: -20px;
+display: flex;
+justify-content: right;
+padding-right: 50px;
+line-height: 1.8em;
+}
+#topic, .topic {
   text-decoration: none;
-  color: black
+  color: black;
+  text-align: left;
+  list-style-type:none;
+  font-weight: bolder;
 }
+.topics-page{
+  grid-template-columns: 1% 1fr 1%;
+  grid-template-rows: auto auto;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+.topic-title{
+  grid-column: 2;
+  grid-row: 1;
 
-.articles-container {
+}
+.article-box{
+  grid-template-columns: 1;
+  grid-row: 2;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.article {
-  text-align: center;
-  font-size: 10px;
-  width: 300px;
-  height: 320px;
-  margin: 1%;
-  background-color: aliceblue;
-  box-shadow: 0px 0px 3px blue, 0px 1px 3px black
+.greeting{
+  grid-column: 2;
+  grid-row: 1;
+}
+.sort_by{
+  font-size: 1.2em;
+  padding-top: 15px;
+  grid-column: 2;
+  grid-row: 2;
+}
+.selector{
+margin-left: 5px;
+font-size: 20px;
 }
 
+.selector-text{
+  font-size: 20px;
+}
+
+.articles-container{
+grid-column: 2;
+grid-row: 3;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+.article{
+  display: block;
+  justify-content: left;
+  border: groove;
+  box-shadow: 1px 5px 10px black, 1px 1px 5px green;
+  margin: 1%;
+  width: 500px;
+  height: 500px;
+  background-color: antiquewhite;
+}
 #article_img {
   width: 100%;
-  height: 50%;
-  padding-bottom: 5px;
+  height: 270px;
+  padding-top: 10%;
 }
 
 .article_title {
-  width: 100%;
-  height: 10%;
+  width: auto;
+  height: 5px;
   color: darkred;
+  padding-left: 20px;
+  padding-right: 5px;
 }
 
 .author-italics {
   font-weight: bold;
   font-style: italic;
+  font-size: 1em
 }
 
 .underline {
   text-decoration: underline;
 }
 
+
 .article_topic,
 .article_author {
-  font-size: 1.4em;
+  font-size: 1em;
   text-align: left;
   padding-left: 4%;
 }
-
-.read-me-btn {
-  padding: 10px;
-  width: 100%;
-  background-color: rgb(169, 110, 110);
-}
-
 .bold,
 .read-me-btn {
+  color: black;
   font-weight: bolder;
+  text-align: center;
 }
 .article-link {
+  text-align: center;
   text-decoration: none;
   font-size: 2em;
+  width: 100%;
+  padding-left: 80px;
 }
 
-.article_byid-box {
+.article-page{
+  display: grid;
+  grid-template-columns: 5% 1fr 5%;
+  grid-row: 1fr 1fr;
+  background-color: whitesmoke;
+  
+}
+
+.article_byid-box{
+  grid-column: 2;
+  grid-row: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 20px;
-  max-width: 100%;
-  width: 70%; 
-  padding: 20px;
-  justify-items: right; 
+  grid-template-rows: 150px 1fr;
+  justify-items: center;
+  border: solid rgb(240, 121, 121);
+  box-shadow: 1px 1px 10px black;
+  background-color: antiquewhite;
+  
 }
 
 #solo_title {
-  grid-column: 1 / 3; 
+  color: darkred;
+  padding-top: 4%;
   grid-row: 1;
+  grid-column: 1/3;
+  justify-content: center;
+}
+#solo_img {
+  grid-row: 2;
+  grid-column: 1/2;
+  width: 100%;
+  height: 100%;
 }
 
 #solo_body {
+  padding-left: 1%;
+  font-size: 1.2em;
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.Avotes{
+  border-top: dashed 3px darkred;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  width: 100%;
+  margin-top: 1px;
+  grid-column: 1/3;
+  grid-row:3;
+}
+.Acomment_vote{
+  font-size: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  grid-column: 1;
+  grid-row: 1/3;
+}
+.btns{
+  font-size: 2em;
+  padding-top: 10px;
+  grid-column: 2;
+}
+
+#Avote-text{
   grid-column: 2;
   grid-row: 2;
+  font-style: italic;
+  font-weight: bold;
+}
+.Avote-btn-add, .Avote-btn-minus{
+padding: 20px;
+margin-left: 30px;
+background: red;
+border-radius: 50%;
+}
+.post-comment {
+  grid-column: 2;
+  margin-top: 10px;
+  border-top: dashed;
+  border-bottom: dashed;
+  padding-top: 35px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-#solo_img {
-  grid-column: 1;
-  grid-row: 2;
+#post-btn {
+  font-size: 2em;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px red, 0px 0px 0px blue
+}
+
+#post-comment,
+#name {
+  font-size: 2em;
+  border: solid;
+  padding: 5px;
+  height: 50px;
+  margin-left: 5px;
+  box-shadow: 0px 0px 5px red, 0px 0px 0px blue
+}
+
+#name {
   width: 300px;
-  height: 400px;
-  margin-top: 7%;
 }
-
+.submit-text{
+  font-size: 2em;
+}
+.enter-text{
+  margin-top: -40px;
+}
+#post-comment {
+  width: 100%;
+  height: 100px;
+  margin-left: 20px;
+  line-height: 1.2em;
+}
 .comments-box {
+  padding-top: 10px;
+  grid-column: 1/4;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -134,8 +307,8 @@ html {
   border: groove black;
   box-shadow: 0px 0px 5px darkgreen, 0px 0px 5px black;
   border-radius: 10px;
+  width: 100%;
   margin: 5px;
-  width: 50%;
   background-color: rgb(238, 246, 246);
 }
 
@@ -169,62 +342,21 @@ html {
   text-align: center;
 }
 
-.post-comment {
-  margin-top: 10px;
-  border-top: dashed;
-  padding-top: 35px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-#post-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 5px red, 0px 0px 0px blue
-}
-
-#post-comment,
-#name {
-  border: solid;
-  padding: 5px;
-  margin-left: 5px;
-  box-shadow: 0px 0px 5px red, 0px 0px 0px blue
-}
-
-#name {
-  width: 250px;
-}
-
-#post-comment {
-  width: 400px;
-  height: 100px;
-  margin-left: 20px;
-  line-height: 1.2em;
-}
-
-.users-page{
+.users-page, .user-profile{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px
+  grid-template-columns: 5% 1fr 1fr 5%;
+  grid-template-rows: auto;
 }
 
 .users-current{
-  grid-column: 1;
-  grid-row: 1/3;
+  grid-column: 2;
   padding: 10px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-}
-
-.user-new{
-  grid-column: 2;
-  grid-row: 1/3;
-  border: solid;
+  margin-top: 35px;
+  justify-content: center;
 }
 
 .user{
@@ -234,12 +366,40 @@ html {
   width: 250px;
   height: 250px;
   padding-right: 30px;
+  margin-right: 50px;
+  margin-bottom: 50px;
   padding-top: 35px;
   background-color: aliceblue;
 
 }
 
 #user-img{
-  width: 100px;
+  width: auto;
   height: 100px;
+}
+.user-new{
+  margin-top: 35px;
+  margin-bottom: 35px;
+  grid-column: 3;
+  border-left: groove 5px rgb(240, 121, 121);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#sign-out-btn{
+  grid-row: 1;
+  grid-column: 2;
+}
+#user-name{
+  grid-row: 2;
+  grid-column: 2;
+}
+#user-image{
+  grid-row: 3;
+  grid-column: 2;
+}
+.userArticles{
+  grid-row: 4;
+  grid-column: 2;
 }

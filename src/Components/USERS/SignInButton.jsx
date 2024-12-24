@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useUser } from "../../UserContext";
 
-export default function SignInButton({ username }) {
+export default function SignInButton({ username, name, avatar}) {
   const [password, setPassword] = useState("");
   const { profile, error, signIn } = useUser();
 
@@ -11,7 +11,7 @@ export default function SignInButton({ username }) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    signIn(username, password);
+    signIn(username,password,name,avatar);
   };
 
   return (
@@ -25,7 +25,6 @@ export default function SignInButton({ username }) {
       <button onClick={handleClick}>Sign In</button>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
-
     </div>
   );
 }

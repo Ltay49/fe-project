@@ -27,6 +27,7 @@ export default function Comments() {
 
   return (
     <>
+     <Post_com setComments={setComments} />
       {deleteSuccess && (
         <p className="success-message">Comment deleted successfully!</p>
       )}
@@ -55,8 +56,6 @@ export default function Comments() {
       ) : (
         <p>No comments here yet</p>
       )}
-
-      <Post_com setComments={setComments} />
     </>
   );
 }
