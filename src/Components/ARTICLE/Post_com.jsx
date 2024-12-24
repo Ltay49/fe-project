@@ -1,12 +1,14 @@
 import axiosInstance from "../../Instance";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useUser } from "../../UserContext";
 
 export default function Post_com({ setComments }) {
   const { articleid } = useParams();
   const nameValidation = /^[^\d][A-Za-z0-9_]*/;
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmiited] = useState(false);
+  const {profile} = useUser()
 
   const [newComment, setNewComment] = useState({
     username: "",
@@ -60,12 +62,14 @@ export default function Post_com({ setComments }) {
         <p>Your post is in the post...📨</p>
       ) : (
         <form onSubmit={handleSubmit}>
+          <div className="submit-text">
           <p>Add your own comment here</p>
           <br />
-          1. Enter your Username - must start with a letter / if you don't have
-          a username remember to sign up
+          <p className="enter-text">1. Enter your Username - must start with a letter / if you don't have
+          a username remember to sign up</p>
           <br />
-          2. Type your comment
+          <p className="enter-text">2. Type your comment</p>
+          </div>
           <p>
             <label htmlFor="name"></label>
             <input

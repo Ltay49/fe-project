@@ -9,10 +9,6 @@ export default function ArticleVote({articleVotes}){
     const [aVotes, setAvotes] = useState(articleVotes)
     const [error, setError] = useState(null)
 
-    useEffect(()=>{
-        setAvotes(articleVotes)
-    },[articleVotes])
-
     const updateVote = (change) => {
         setAvotes((prevVote) => prevVote + change); 
         voterUpdate(change);
