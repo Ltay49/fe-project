@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axiosInstance from "../../Instance";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css"
 
 export default function DeleteBtn({ commentId, setComments, setDeleteSuccess }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +17,16 @@ export default function DeleteBtn({ commentId, setComments, setDeleteSuccess }) 
       .then(() => {
         setDeleteSuccess(true);
         setComments(prevComments => prevComments.filter(comment => comment.comment_id !== commentId));
-      })
+      Toastify({
+        text: "Comment successfully deleted!",
+        duration: 5000, 
+        backgroundColor: "green",
+        close: true,
+        gravity: "top",
+        position: "right", 
+        stopOnFocus: true,
+      }).showToast();
+    })
       .catch((err) => {
         console.error("Error deleting comment:", err);
         setIsDeleteError(true);

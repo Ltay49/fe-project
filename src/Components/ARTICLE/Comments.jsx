@@ -28,11 +28,8 @@ export default function Comments() {
   return (
     <>
      <Post_com setComments={setComments} />
-      {deleteSuccess && (
-        <p className="success-message">Comment deleted successfully!</p>
-      )}
-
-      {comments.length > 0 ? (
+     
+       {comments.length > 0 ? (
         comments.map((comment, id) => (
           <section className="comments-box" key={id}>
             <section className="comment-box">
